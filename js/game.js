@@ -12,7 +12,9 @@ $("document").ready(function() {
 		for (let i = 0; i < map.length; i++) {
 			for (let j = 0; j < map[i].length; j++) {
 				if (map[i][j] != 0) {
-					ctx.drawImage(tilesheet, tiles[map[i][j]][1] * tileWidth, tiles[map[i][j]][0] * tileHeight, tileWidth, tileHeight,
+					let tile = getTile(i, j);
+					//console.log(i + " " + j + ": " + tile);
+					ctx.drawImage(tilesheet, tile[1] * tileWidth, tile[0] * tileHeight, tileWidth, tileHeight,
 																			 j * tileWidth, i * tileHeight, tileWidth, tileHeight);
 				}
 			}

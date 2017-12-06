@@ -6,21 +6,8 @@ const mapHeight = 9;
 const displayWidth = mapWidth * tileWidth;
 const displayHeight = mapHeight * tileHeight;
 
+//Map tiles
 const pathTilesheet = "./assets/tilesheet.png";
-const pathSpritesheet = "./assets/spritesheet.png";
-const ground = [6, 7];
-const leftWall = [5, 3];
-const rightWall = [5, 4];
-const upWall = [4, 3];
-const downWall = [4, 4];
-const cornerLU = [4, 0];
-const cornerRU = [4, 1];
-const cornerLD = [5, 0];
-const cornerRD = [5, 1];
-const quoridorV = [5, 2]; //10
-const quoridorH = [4, 2]; //11
-const tiles = [null, ground, leftWall, rightWall, upWall, downWall, cornerLU, cornerRU, cornerLD, cornerRD, quoridorV, quoridorH];
-
 
 const EMP = 0;
 const GRD = 1;
