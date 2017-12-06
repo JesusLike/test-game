@@ -107,7 +107,6 @@ function getTile(x, y) {
 			}
 		case DWL:
 			corners = leftUpCorner(x, y) + rightUpCorner(x, y);
-			console.log(x + " " + y + ": " + corners);
 			switch (corners) {
 				case '00':
 					return [7, 5];
