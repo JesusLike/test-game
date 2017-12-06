@@ -13,12 +13,10 @@ $("document").ready(function() {
 			for (let j = 0; j < map[i].length; j++) {
 				if (map[i][j] != 0) {
 					let tile = getTile(i, j);
-					//console.log(i + " " + j + ": " + tile);
 					ctx.drawImage(tilesheet, tile[1] * tileWidth, tile[0] * tileHeight, tileWidth, tileHeight,
 																			 j * tileWidth, i * tileHeight, tileWidth, tileHeight);
 				}
 			}
 		}
-		//ctx.drawImage(tilesheet, 0, 0);
 	}
 });
