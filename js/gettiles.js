@@ -1,30 +1,30 @@
 function leftUpCorner(x, y) {
 	if (x > 0 && y > 0 && 
-			[LWL, CLU, QRV].includes(map[x - 1][y]) || [UWL, CLU, QRH].includes(map[x][y - 1])) {
+			[LWL, CLU, QRV, DEU].includes(map.tiles[x - 1][y]) || [UWL, CLU, QRH, DEL].includes(map.tiles[x][y - 1])) {
 		return '1';
 	}
 	return '0';
 }
 
 function rightUpCorner(x, y) {
-	if (x > 0 && y < map[x].length - 1 && 
-			[RWL, CRU, QRV].includes(map[x - 1][y]) || [UWL, CRU, QRH].includes(map[x][y + 1])) {
+	if (x > 0 && y < map.tiles[x].length - 1 && 
+			[RWL, CRU, QRV, DEU].includes(map.tiles[x - 1][y]) || [UWL, CRU, QRH, DER].includes(map.tiles[x][y + 1])) {
 		return '1';
 	}
 	return '0';
 }
 
 function rightDownCorner(x, y) {
-	if (x < map.length - 1 && y < map[x].length - 1 && 
-			[RWL, CRD, QRV].includes(map[x + 1][y]) || [DWL, CRD, QRH].includes(map[x][y + 1])) {
+	if (x < map.tiles.length - 1 && y < map.tiles[x].length - 1 && 
+			[RWL, CRD, QRV, DED].includes(map.tiles[x + 1][y]) || [DWL, CRD, QRH, DER].includes(map.tiles[x][y + 1])) {
 		return '1';
 	}
 	return '0';
 }
 
 function leftDownCorner(x, y) {
-	if (x < map.length - 1 && y > 0 && 
-			[LWL, CLD, QRV].includes(map[x + 1][y]) || [DWL, CLD, QRH].includes(map[x][y - 1])) {
+	if (x < map.tiles.length - 1 && y > 0 && 
+			[LWL, CLD, QRV, DED].includes(map.tiles[x + 1][y]) || [DWL, CLD, QRH, DEL].includes(map.tiles[x][y - 1])) {
 		return '1';
 	}
 	return '0';
@@ -32,7 +32,7 @@ function leftDownCorner(x, y) {
 
 function getTile(x, y) {
 	let corners;
-	switch (map[x][y]) {
+	switch (map.tiles[x][y]) {
 		case GRD:
 			corners = leftUpCorner(x, y) + rightUpCorner(x, y) + rightDownCorner(x, y) + leftDownCorner(x, y);
 			switch (corners) {
@@ -133,6 +133,14 @@ function getTile(x, y) {
 			return [4, 2];
 		case QRV:
 			return [5, 2];
+		case DEL:
+			return [5, 6];
+		case DEU:
+			return [5, 5];
+		case DER:
+			return [4, 5];
+		case DED:
+			return [4, 4];
 		default:
 			break;
 	}
